@@ -15,4 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to sample 2"/>
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/testt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -1,25 +1,33 @@
 package bk.personal.com.templatemvvmnavigationhilt.sampleTwo.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import bk.personal.com.templatemvvmnavigationhilt.R
-import bk.personal.com.templatemvvmnavigationhilt.sample.view.SampleFragmentDirections
-import kotlinx.android.synthetic.main.fragment_sample.view.*
+import bk.personal.com.templatemvvmnavigationhilt.databinding.FragmentSampleTwoBinding
 
-class SampleTwoFragment: Fragment(){
+class SampleTwoFragment : Fragment() {
+
+    private lateinit var bind: FragmentSampleTwoBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v = inflater.inflate(R.layout.fragment_sample_two, container, false)
-        v.goButton.setOnClickListener {
+        bind = FragmentSampleTwoBinding.inflate(inflater, container, false)
+        val view = bind.root
+        bind.goButton.setOnClickListener {
             findNavController().navigate(SampleTwoFragmentDirections.actionSampleTwoFragmentToSampleFragment())
         }
-        return v
+
+        bind.mybutton.setOnClickListener {
+            Log.d("BK","Button click")
+            bind.mytextview.text = bind.myedittext.text
+        }
+        return view
     }
 }
